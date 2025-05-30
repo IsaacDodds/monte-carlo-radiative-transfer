@@ -21,7 +21,6 @@ This repository contains a C-based implementation of a 1D radiative transfer sol
 
 Isaac Dodds  
 Physics + Mathematics | University of Bath  
-Commonwealth Games athlete and scientific computing student  
 [GitHub Profile](https://github.com/IsaacDodds)
 
 ## License
