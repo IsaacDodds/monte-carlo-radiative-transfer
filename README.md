@@ -1,28 +1,21 @@
-# Radiative Transfer Solver
+# Monte Carlo radiative transfer
 
-This repository contains a C-based implementation of a 1D radiative transfer solver. It simulates photon transport through a scattering medium using both deterministic PDE discretisation and Monte Carlo methods.
+A C program that follows photons through a plane-parallel scattering slab by Monte Carlo and records the emergent radiation. Coursework from the BSc in Mathematics and Physics, University of Bath.
 
-## Features
-
-- Solves the time-independent radiative transfer equation
-- Isotropic and Rayleigh scattering models
-- Finite-difference discretisation
-- Monte Carlo rejection and inverse transform sampling
-- Emergent intensity and angular flux output
-- Adjustable opacity, density, and slab width
+The program first checks its two samplers for the Rayleigh phase function, rejection sampling and inversion of the cumulative distribution, and writes the samples to `Rejection.txt` and `Cumulative.txt`. It then runs the photon walk, one million photons per run, for a set of optical depths with isotropic and Rayleigh scattering, writes one file per run named `tau_<tau>_<method>.txt`, and prints the fraction of photons absorbed.
 
 ## Files
 
-- `id408.c` — Main C source code
-- `id408.pdf` — Report summarising physics and results
-- `*.txt` — Output intensity or flux files (optional)
+- `radiative-transfer-solver.c`, the source
+- `radiative-transfer-solver.pdf`, the report
 
-## Author
+## Build and run
 
-Isaac Dodds  
-Physics + Mathematics | University of Bath  
-[GitHub Profile](https://github.com/IsaacDodds)
+```
+cc -O2 -o radiative radiative-transfer-solver.c -lm
+./radiative
+```
 
-## License
+## Licence
 
-MIT License
+MIT. See `LICENSE`.
